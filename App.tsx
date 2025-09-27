@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -11,18 +10,35 @@ import Awards from './components/Awards';
 import Chatbot from './components/Chatbot';
 
 const App: React.FC = () => {
+  const [activeView, setActiveView] = useState('home');
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
+  const renderContent = () => {
+    switch (activeView) {
+      case 'home':
+        return <Hero setActiveView={setActiveView} />;
+      case 'about':
+        return <About />;
+      case 'expertise':
+        return <Expertise selectedSkill={selectedSkill} onSkillSelect={setSelectedSkill} />;
+      case 'experience':
+        return <Experience selectedSkill={selectedSkill} />;
+      case 'awards':
+        return <Awards />;
+      case 'contact':
+        return <Contact />;
+      default:
+        return <Hero setActiveView={setActiveView} />;
+    }
+  };
+
   return (
-    <div className="bg-slate-900 text-slate-300 font-sans">
-      <Header />
+    <div className="bg-zinc-950 text-zinc-300 font-sans">
+      <Header activeView={activeView} setActiveView={setActiveView} />
       <main className="container mx-auto px-6 md:px-12">
-        <Hero />
-        <About />
-        <Expertise selectedSkill={selectedSkill} onSkillSelect={setSelectedSkill} />
-        <Experience selectedSkill={selectedSkill} />
-        <Awards />
-        <Contact />
+        <div key={activeView} className="animate-fade-in">
+          {renderContent()}
+        </div>
       </main>
       <Footer />
       <Chatbot />

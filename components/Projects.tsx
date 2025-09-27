@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { Experience } from '../types';
 import ExperienceItem from './ProjectCard';
@@ -93,12 +92,12 @@ interface ExperienceProps {
 
 const Experience: React.FC<ExperienceProps> = ({ selectedSkill }) => {
   return (
-    <section id="experience" className="py-20 md:py-32">
-      <h2 className="text-4xl font-bold text-center mb-4 text-slate-100">Experience & Achievement</h2>
+    <section className="py-20 md:py-32">
+      <h2 className="text-4xl font-bold text-center mb-4 text-zinc-100">Experience & Achievement</h2>
       <p className="text-sky-400 text-center font-medium mb-12">My professional journey</p>
       
       <div className="relative max-w-4xl mx-auto">
-        <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700 hidden md:block"></div>
+        <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-zinc-800 hidden md:block"></div>
         {experiences.map((experience, index) => (
           <ExperienceItem key={experience.id} experience={experience} isRight={index % 2 !== 0} selectedSkill={selectedSkill} />
         ))}

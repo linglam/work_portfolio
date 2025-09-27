@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenAI, Chat } from '@google/genai';
 import type { Message } from '../types';
@@ -167,21 +166,21 @@ const Chatbot: React.FC = () => {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className={`fixed bottom-6 right-6 bg-sky-500 text-white p-4 rounded-full shadow-lg hover:bg-sky-600 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-900 ${isOpen ? 'scale-0' : 'scale-100'}`}
+                className={`fixed bottom-6 right-6 bg-sky-500 text-white p-4 rounded-full shadow-lg hover:bg-sky-600 transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-zinc-950 ${isOpen ? 'scale-0' : 'scale-100'}`}
                 aria-label="Open AI chat"
             >
                 <ChatIcon className="w-8 h-8" />
             </button>
 
             <div
-                className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-[calc(100%-3rem)] sm:w-full max-w-md h-[75%] sm:h-auto sm:max-h-[80vh] bg-slate-800/80 backdrop-blur-lg rounded-xl shadow-2xl flex flex-col transition-all duration-300 ease-in-out origin-bottom-right ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}`}
+                className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-[calc(100%-3rem)] sm:w-full max-w-md h-[75%] sm:h-auto sm:max-h-[80vh] bg-zinc-900/80 backdrop-blur-lg rounded-xl shadow-2xl flex flex-col transition-all duration-300 ease-in-out origin-bottom-right ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}`}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="chat-heading"
             >
-                <header className="flex items-center justify-between p-4 border-b border-slate-700 bg-slate-900/50 rounded-t-xl">
-                    <h2 id="chat-heading" className="text-lg font-bold text-slate-100">AI Assistant</h2>
-                    <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white" aria-label="Close chat">
+                <header className="flex items-center justify-between p-4 border-b border-zinc-800 bg-zinc-950/50 rounded-t-xl">
+                    <h2 id="chat-heading" className="text-lg font-bold text-zinc-100">AI Assistant</h2>
+                    <button onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-white" aria-label="Close chat">
                         <CloseIcon className="w-6 h-6" />
                     </button>
                 </header>
@@ -191,7 +190,7 @@ const Chatbot: React.FC = () => {
                         <div key={index} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                             {msg.role === 'model' && <BotIcon className="w-6 h-6 text-sky-400 flex-shrink-0 mt-1" />}
                             <div
-                                className={`max-w-xs md:max-w-sm px-4 py-2 rounded-xl prose prose-invert prose-sm ${msg.role === 'user' ? 'bg-sky-600 text-white rounded-br-none' : 'bg-slate-700 text-slate-300 rounded-bl-none'}`}
+                                className={`max-w-xs md:max-w-sm px-4 py-2 rounded-xl prose prose-invert prose-sm ${msg.role === 'user' ? 'bg-sky-600 text-white rounded-br-none' : 'bg-zinc-800 text-zinc-300 rounded-bl-none'}`}
                                 dangerouslySetInnerHTML={{ __html: msg.content.replace(/\n/g, '<br />') }}
                             />
                         </div>
@@ -199,7 +198,7 @@ const Chatbot: React.FC = () => {
                     {isLoading && (
                         <div className="flex justify-start gap-3">
                             <BotIcon className="w-6 h-6 text-sky-400 flex-shrink-0 mt-1" />
-                            <div className="flex items-center space-x-1 px-4 py-3 bg-slate-700 rounded-xl rounded-bl-none">
+                            <div className="flex items-center space-x-1 px-4 py-3 bg-zinc-800 rounded-xl rounded-bl-none">
                                 <span className="w-2 h-2 bg-sky-400 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></span>
                                 <span className="w-2 h-2 bg-sky-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></span>
                                 <span className="w-2 h-2 bg-sky-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></span>
@@ -209,20 +208,20 @@ const Chatbot: React.FC = () => {
                     <div ref={messagesEndRef} />
                 </div>
 
-                <form onSubmit={handleSendMessage} className="p-4 border-t border-slate-700">
+                <form onSubmit={handleSendMessage} className="p-4 border-t border-zinc-800">
                     <div className="flex items-center space-x-2">
                         <input
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Ask about my experience..."
-                            className="flex-1 w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                            className="flex-1 w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-2 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
                             disabled={isLoading}
                             aria-label="Chat input"
                         />
                         <button
                             type="submit"
-                            className="bg-sky-500 text-white p-3 rounded-lg hover:bg-sky-600 disabled:bg-slate-600 disabled:cursor-not-allowed"
+                            className="bg-sky-500 text-white p-3 rounded-lg hover:bg-sky-600 disabled:bg-zinc-700 disabled:cursor-not-allowed"
                             disabled={isLoading || !input.trim()}
                             aria-label="Send message"
                         >

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const awardsList = [
@@ -14,11 +13,11 @@ const awardsList = [
 
 const Awards: React.FC = () => {
     return (
-        <section id="awards" className="py-20 md:py-32">
-            <h2 className="text-4xl font-bold text-center mb-4 text-slate-100">Honors and Awards</h2>
+        <section className="py-20 md:py-32">
+            <h2 className="text-4xl font-bold text-center mb-4 text-zinc-100">Honors and Awards</h2>
             <p className="text-sky-400 text-center font-medium mb-12">Recognition and achievements</p>
             
-            <div className="max-w-3xl mx-auto bg-slate-800 p-8 rounded-lg shadow-lg">
+            <div className="max-w-3xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg">
                 <ul className="space-y-4">
                     {awardsList.map((award, index) => (
                         <li key={index} className="flex items-start text-lg">
@@ -26,7 +25,7 @@ const Awards: React.FC = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4l-3 3-3-3m5 12v4m-2-2h4"></path>
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21a9 9 0 110-18 9 9 0 010 18z"></path>
                             </svg>
-                            <span className="text-slate-300">{award}</span>
+                            <span className="text-zinc-300">{award}</span>
                         </li>
                     ))}
                 </ul>
