@@ -3,7 +3,7 @@ import QuoteIcon from './icons/QuoteIcon';
 
 const testimonials = [
   {
-    summary: "Ling is a stellar teaching and collaborative spirit in school improvement and technology. He praises her innovative mindset, expertise in STEM, and her role as a co-presenter at professional development conferences, recommending her wholeheartedly for her honest, transparent, and ethical character.",
+    summary: "Ling is a stellar teaching and collaborative spirit in school improvement and technology. She has an innovative mindset, expertise in STEM, and her role as a co-presenter at professional development conferences, recommending her wholeheartedly for her honest, transparent, and ethical character.",
     author: 'Todd Dugan',
     title: 'Superintendent, Bunker Hill Community Unit District #8',
   },
@@ -13,17 +13,17 @@ const testimonials = [
     title: 'Instructional Coach, Alpha: Cindy Avitia High School',
   },
   {
-    summary: "Ling is a collaborative and deeply invested teacher. She highlights Ling's initiative in going 'above and beyond,' from launching an after-school club for a Google competition to co-creating the school's first maker's space, praising her as a valuable asset to any organization.",
+    summary: "Ling is a collaborative and deeply invested teacher. Her initiative in going 'above and beyond,' from launching an after-school club for a Google competition to co-creating the school's first maker's space, praising her as a valuable asset to any organization.",
     author: 'Ashlee Gutierrez',
     title: 'Founding School Leader, Caliber: Beta Academy',
   },
   {
-    summary: "Marcus Pottenger praises Ling's professionalism and creativity as a 2nd-grade teacher. He highlights her dedication to students' social-emotional needs by implementing 'philosophy for children' (p4c) strategies and designing her own curriculum, describing her as an energetic and valuable team player.",
+    summary: "Ling's professionalism and creativity as a 2nd-grade teacher. Her dedication to students' social-emotional needs by implementing 'philosophy for children' (p4c) strategies and designing her own curriculum, describing her as an energetic and valuable team player.",
     author: 'Marcus Pottenger',
     title: 'Technology Coordinator, Hokulani Elementary School',
   },
   {
-    summary: "Having worked with Ling for over six years, Cynthia White describes her as a highly motivated and reliable asset. She commends Ling's exemplary work with at-risk youth, highlighting her skill in facilitating peer groups, developing programs, and building strong rapport to guide young people toward positive choices.",
+    summary: "Having worked with Ling for over six years, She is a highly motivated and reliable asset. She commends Ling's exemplary work with at-risk youth, highlighting her skill in facilitating peer groups, developing programs, and building strong rapport to guide young people toward positive choices.",
     author: 'Cynthia White, M.Ed.',
     title: 'Executive Director, Kids Hurt Too Hawaii',
   },

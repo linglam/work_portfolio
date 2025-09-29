@@ -6,9 +6,8 @@ import Experience from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Expertise from './components/Expertise';
-import Awards from './components/Awards';
 import Chatbot from './components/Chatbot';
-import Testimonials from './components/Testimonials';
+import Recognition from './components/Recognition';
 
 const App: React.FC = () => {
   const [activeView, setActiveView] = useState('home');
@@ -17,12 +16,9 @@ const App: React.FC = () => {
   const renderContent = () => {
     switch (activeView) {
       case 'home':
-        return (
-          <>
-            <Hero setActiveView={setActiveView} />
-            <About />
-          </>
-        );
+        return <Hero setActiveView={setActiveView} />;
+      case 'about':
+        return <About />;
       case 'experience':
         return (
           <>
@@ -30,19 +26,12 @@ const App: React.FC = () => {
             <Experience selectedSkill={selectedSkill} />
           </>
         );
-      case 'awards':
-        return <Awards />;
-      case 'testimonials':
-        return <Testimonials />;
+      case 'recognition':
+        return <Recognition />;
       case 'contact':
         return <Contact />;
       default:
-        return (
-          <>
-            <Hero setActiveView={setActiveView} />
-            <About />
-          </>
-        );
+        return <Hero setActiveView={setActiveView} />;
     }
   };
 
