@@ -31,10 +31,9 @@ const Header: React.FC<HeaderProps> = ({ activeView, setActiveView }) => {
   };
 
   const navLinks = [
-    { key: 'about', label: 'About' },
-    { key: 'expertise', label: 'Expertise' },
     { key: 'experience', label: 'Experience' },
     { key: 'awards', label: 'Awards' },
+    { key: 'testimonials', label: 'Testimonials' },
     { key: 'contact', label: 'Contact' },
   ];
 
