@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import QuoteIcon from './icons/QuoteIcon';
 
 const testimonials = [
@@ -40,30 +40,114 @@ const awardsList = [
     'Mānoa McInerny Scholarship for Teacher Education (2011)',
 ];
 
+const galleryImages = [
+    { src: 'https://res.cloudinary.com/du0rolbnv/image/upload/v1759265290/t_L_j4s5do.jpg', alt: 'Ling Lam at a Tech & Learning event' },
+    { src: 'https://res.cloudinary.com/du0rolbnv/image/upload/v1759265289/naytea_ddhftx.jpg', alt: 'Ling Lam speaking at NAYTEA conference' },
+    { src: 'https://res.cloudinary.com/du0rolbnv/image/upload/v1759265288/design_thinking_eahq64.jpg', alt: 'A design thinking workshop' },
+    { src: 'https://res.cloudinary.com/du0rolbnv/image/upload/v1759252272/csm_vnbnjj.jpg', alt: 'Ling Lam at a CSM event' },
+];
 
-const Recognition: React.FC = () => {
+
+const Achievement: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const goToPrevious = useCallback(() => {
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? testimonials.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    }, [currentIndex]);
+
+    const goToNext = useCallback(() => {
+        const isLastSlide = currentIndex === testimonials.length - 1;
+        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    }, [currentIndex]);
+    
+    const goToSlide = (slideIndex: number) => {
+        setCurrentIndex(slideIndex);
+    };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            goToNext();
+        }, 7000);
+        return () => clearTimeout(timer);
+    }, [currentIndex, goToNext]);
+
+
     return (
         <section className="py-20 md:py-32">
-            <h2 className="text-4xl font-bold text-center mb-4 text-zinc-100">Recognition & Praise</h2>
-            <p className="text-sky-400 text-center font-medium mb-20">Testimonials and awards from colleagues and organizations.</p>
+            <h2 className="text-4xl font-bold text-center mb-4 text-zinc-100">Achievements</h2>
+            <p className="text-sky-400 text-center font-medium mb-20">Testimonials and awards from my professional journey.</p>
             
             <div className="mb-20 md:mb-24">
                 <h3 className="text-3xl font-bold text-center mb-4 text-zinc-100">Testimonials</h3>
                 <p className="text-sky-400 text-center font-medium mb-12">What others are saying</p>
                 
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {testimonials.map((testimonial, index) => (
-                        <div key={index} className="bg-zinc-900 p-8 rounded-lg shadow-lg flex flex-col justify-between relative overflow-hidden hover:shadow-sky-500/10 transition-shadow duration-300">
-                            <QuoteIcon className="absolute top-4 right-4 w-16 h-16 text-zinc-800/50" />
-                            <blockquote className="relative z-10">
-                                <p className="text-zinc-300 leading-relaxed italic">"{testimonial.summary}"</p>
-                            </blockquote>
-                            <footer className="mt-6 relative z-10">
-                                <p className="font-bold text-zinc-100">{testimonial.author}</p>
-                                <p className="text-sky-400 text-sm">{testimonial.title}</p>
-                            </footer>
+                <div className="max-w-3xl mx-auto relative">
+                    <button onClick={goToPrevious} className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 text-zinc-500 hover:text-sky-400 transition-colors z-10 p-2 bg-zinc-900/50 rounded-full" aria-label="Previous testimonial">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <div className="overflow-hidden relative">
+                        <div key={currentIndex} className="animate-fade-in">
+                            <div className="bg-zinc-900 p-8 rounded-lg shadow-lg flex flex-col text-center items-center relative overflow-hidden hover:shadow-sky-500/10 transition-shadow duration-300">
+                                <QuoteIcon className="absolute top-4 right-4 w-16 h-16 text-zinc-800/50" />
+                                <blockquote className="relative z-10 max-w-xl">
+                                    <p className="text-zinc-300 text-lg leading-relaxed italic">"{testimonials[currentIndex].summary}"</p>
+                                </blockquote>
+                                <footer className="mt-6 relative z-10">
+                                    <p className="font-bold text-zinc-100 text-lg">{testimonials[currentIndex].author}</p>
+                                    <p className="text-sky-400 text-sm">{testimonials[currentIndex].title}</p>
+                                </footer>
+                            </div>
                         </div>
-                    ))}
+                    </div>
+                    <button onClick={goToNext} className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 text-zinc-500 hover:text-sky-400 transition-colors z-10 p-2 bg-zinc-900/50 rounded-full" aria-label="Next testimonial">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                     <div className="flex justify-center space-x-2 mt-8">
+                        {testimonials.map((_, slideIndex) => (
+                            <button 
+                                key={slideIndex}
+                                onClick={() => goToSlide(slideIndex)}
+                                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentIndex === slideIndex ? 'bg-sky-500' : 'bg-zinc-600 hover:bg-zinc-500'}`}
+                                aria-label={`Go to testimonial ${slideIndex + 1}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+            
+            <div className="mb-20 md:mb-24">
+                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-100">Speaking & Workshops</h3>
+                <p className="text-sky-400 text-center font-medium mb-12">Engaging with the community</p>
+                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    {/* Column 1 */}
+                    <div className="space-y-6 md:space-y-8">
+                        {[galleryImages[0], galleryImages[1]].map((image, index) => (
+                            <div key={index} className="group overflow-hidden rounded-lg shadow-lg bg-zinc-800 hover:shadow-sky-500/10 transition-shadow">
+                                <img 
+                                    src={image.src} 
+                                    alt={image.alt} 
+                                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" 
+                                    loading="lazy" 
+                                />
+                            </div>
+                        ))}
+                    </div>
+                     {/* Column 2 (Staggered) */}
+                    <div className="space-y-6 md:space-y-8 md:mt-16">
+                        {[galleryImages[2], galleryImages[3]].map((image, index) => (
+                             <div key={index + 2} className="group overflow-hidden rounded-lg shadow-lg bg-zinc-800 hover:shadow-sky-500/10 transition-shadow">
+                                <img 
+                                    src={image.src} 
+                                    alt={image.alt} 
+                                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105" 
+                                    loading="lazy" 
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -89,4 +173,4 @@ const Recognition: React.FC = () => {
     );
 };
 
-export default Recognition;
+export default Achievement;
