@@ -7,7 +7,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Expertise from './components/Expertise';
 import Chatbot from './components/Chatbot';
-import Recognition from './components/Recognition';
+import Achievement from './components/Recognition';
 
 const App: React.FC = () => {
   const [activeView, setActiveView] = useState('home');
@@ -26,8 +26,8 @@ const App: React.FC = () => {
             <Experience selectedSkill={selectedSkill} />
           </>
         );
-      case 'recognition':
-        return <Recognition />;
+      case 'achievement':
+        return <Achievement />;
       case 'contact':
         return <Contact />;
       default:
