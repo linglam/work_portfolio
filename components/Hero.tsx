@@ -11,10 +11,10 @@ const Hero: React.FC<HeroProps> = ({ setActiveView }) => {
     <section id="home" className="min-h-screen flex items-center justify-center text-center py-20">
       <div className="w-full max-w-4xl mx-auto px-4">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-          <span className="block text-zinc-100">Ling Lam, M.Ed</span>
-          <span className="block text-sky-400 mt-2">EdTech & IT Leader</span>
+          <span className="block text-zinc-900 dark:text-zinc-100">Ling Lam, M.Ed</span>
+          <span className="block text-sky-500 dark:text-sky-400 mt-2">EdTech & IT Leader</span>
         </h1>
-        <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-400 mt-6">
+        <p className="max-w-3xl mx-auto text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mt-6">
           15+ years' experience driving innovation in K-12 learning, IT, and program leadership across global and U.S. schools. Expert in AI integration, SaaS management, curriculum design, and professional development.
         </p>
 
@@ -43,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveView }) => {
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); setActiveView('contact'); }}
-            className="bg-zinc-800 text-zinc-100 font-semibold px-8 py-3 rounded-md hover:bg-zinc-700 transition-all duration-300"
+            className="bg-zinc-200 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100 font-semibold px-8 py-3 rounded-md hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all duration-300"
           >
             Get In Touch
           </a>

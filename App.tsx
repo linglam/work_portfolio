@@ -36,7 +36,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="bg-zinc-950 text-zinc-300 font-sans">
+    <div className="bg-white dark:bg-zinc-950 text-zinc-700 dark:text-zinc-300 font-sans">
       <Header activeView={activeView} setActiveView={setActiveView} />
       <main className="container mx-auto px-6 md:px-12">
         <div key={activeView} className="animate-fade-in">

@@ -77,32 +77,32 @@ const Achievement: React.FC = () => {
 
     return (
         <section className="py-20 md:py-32">
-            <h2 className="text-4xl font-bold text-center mb-4 text-zinc-100">Achievements</h2>
-            <p className="text-sky-400 text-center font-medium mb-20">Testimonials and awards from my professional journey.</p>
+            <h2 className="text-4xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Achievements</h2>
+            <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-20">Testimonials and awards from my professional journey.</p>
             
             <div className="mb-20 md:mb-24">
-                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-100">Testimonials</h3>
-                <p className="text-sky-400 text-center font-medium mb-12">What others are saying</p>
+                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Testimonials</h3>
+                <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">What others are saying</p>
                 
                 <div className="max-w-3xl mx-auto relative">
-                    <button onClick={goToPrevious} className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 text-zinc-500 hover:text-sky-400 transition-colors z-10 p-2 bg-zinc-900/50 rounded-full" aria-label="Previous testimonial">
+                    <button onClick={goToPrevious} className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 text-zinc-500 hover:text-sky-500 dark:hover:text-sky-400 transition-colors z-10 p-2 bg-white/50 dark:bg-zinc-900/50 rounded-full" aria-label="Previous testimonial">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
                     <div className="overflow-hidden relative">
                         <div key={currentIndex} className="animate-fade-in">
-                            <div className="bg-zinc-900 p-8 rounded-lg shadow-lg flex flex-col text-center items-center relative overflow-hidden hover:shadow-sky-500/10 transition-shadow duration-300">
-                                <QuoteIcon className="absolute top-4 right-4 w-16 h-16 text-zinc-800/50" />
+                            <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/50 p-8 rounded-lg shadow-lg flex flex-col text-center items-center relative overflow-hidden hover:shadow-sky-500/10 transition-shadow duration-300">
+                                <QuoteIcon className="absolute top-4 right-4 w-16 h-16 text-zinc-100 dark:text-zinc-800/50" />
                                 <blockquote className="relative z-10 max-w-xl">
-                                    <p className="text-zinc-300 text-lg leading-relaxed italic">"{testimonials[currentIndex].summary}"</p>
+                                    <p className="text-zinc-600 dark:text-zinc-300 text-lg leading-relaxed italic">"{testimonials[currentIndex].summary}"</p>
                                 </blockquote>
                                 <footer className="mt-6 relative z-10">
-                                    <p className="font-bold text-zinc-100 text-lg">{testimonials[currentIndex].author}</p>
-                                    <p className="text-sky-400 text-sm">{testimonials[currentIndex].title}</p>
+                                    <p className="font-bold text-zinc-900 dark:text-zinc-100 text-lg">{testimonials[currentIndex].author}</p>
+                                    <p className="text-sky-500 dark:text-sky-400 text-sm">{testimonials[currentIndex].title}</p>
                                 </footer>
                             </div>
                         </div>
                     </div>
-                    <button onClick={goToNext} className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 text-zinc-500 hover:text-sky-400 transition-colors z-10 p-2 bg-zinc-900/50 rounded-full" aria-label="Next testimonial">
+                    <button onClick={goToNext} className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 text-zinc-500 hover:text-sky-500 dark:hover:text-sky-400 transition-colors z-10 p-2 bg-white/50 dark:bg-zinc-900/50 rounded-full" aria-label="Next testimonial">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                      <div className="flex justify-center space-x-2 mt-8">
@@ -110,7 +110,7 @@ const Achievement: React.FC = () => {
                             <button 
                                 key={slideIndex}
                                 onClick={() => goToSlide(slideIndex)}
-                                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentIndex === slideIndex ? 'bg-sky-500' : 'bg-zinc-600 hover:bg-zinc-500'}`}
+                                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentIndex === slideIndex ? 'bg-sky-500' : 'bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-500'}`}
                                 aria-label={`Go to testimonial ${slideIndex + 1}`}
                             />
                         ))}
@@ -119,13 +119,13 @@ const Achievement: React.FC = () => {
             </div>
             
             <div className="mb-20 md:mb-24">
-                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-100">Speaking & Workshops</h3>
-                <p className="text-sky-400 text-center font-medium mb-12">Engaging with the community</p>
+                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Speaking & Workshops</h3>
+                <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">Engaging with the community</p>
                 <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {/* Column 1 */}
                     <div className="space-y-6 md:space-y-8">
                         {[galleryImages[0], galleryImages[1]].map((image, index) => (
-                            <div key={index} className="group overflow-hidden rounded-lg shadow-lg bg-zinc-800 hover:shadow-sky-500/10 transition-shadow">
+                            <div key={index} className="group overflow-hidden rounded-lg shadow-lg bg-zinc-100 dark:bg-zinc-800 hover:shadow-sky-500/10 transition-shadow">
                                 <img 
                                     src={image.src} 
                                     alt={image.alt} 
@@ -138,7 +138,7 @@ const Achievement: React.FC = () => {
                      {/* Column 2 (Staggered) */}
                     <div className="space-y-6 md:space-y-8 md:mt-16">
                         {[galleryImages[2], galleryImages[3]].map((image, index) => (
-                             <div key={index + 2} className="group overflow-hidden rounded-lg shadow-lg bg-zinc-800 hover:shadow-sky-500/10 transition-shadow">
+                             <div key={index + 2} className="group overflow-hidden rounded-lg shadow-lg bg-zinc-100 dark:bg-zinc-800 hover:shadow-sky-500/10 transition-shadow">
                                 <img 
                                     src={image.src} 
                                     alt={image.alt} 
@@ -152,10 +152,10 @@ const Achievement: React.FC = () => {
             </div>
 
             <div>
-                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-100">Honors and Awards</h3>
-                <p className="text-sky-400 text-center font-medium mb-12">Recognition and achievements</p>
+                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Honors and Awards</h3>
+                <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">Recognition and achievements</p>
                 
-                <div className="max-w-3xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg">
+                <div className="max-w-3xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/50 p-8 rounded-lg shadow-lg">
                     <ul className="space-y-4">
                         {awardsList.map((award, index) => (
                             <li key={index} className="flex items-start text-lg">
@@ -163,7 +163,7 @@ const Achievement: React.FC = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4l-3 3-3-3m5 12v4m-2-2h4"></path>
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21a9 9 0 110-18 9 9 0 010 18z"></path>
                                 </svg>
-                                <span className="text-zinc-300">{award}</span>
+                                <span className="text-zinc-700 dark:text-zinc-300">{award}</span>
                             </li>
                         ))}
                     </ul>

@@ -93,11 +93,11 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({ selectedSkill }) => {
   return (
     <section className="py-20 md:py-32">
-      <h2 className="text-4xl font-bold text-center mb-4 text-zinc-100">Experience & Achievement</h2>
-      <p className="text-sky-400 text-center font-medium mb-12">My professional journey</p>
+      <h2 className="text-4xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Experience & Achievement</h2>
+      <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">My professional journey</p>
       
       <div className="relative max-w-4xl mx-auto">
-        <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-zinc-800 hidden md:block"></div>
+        <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-zinc-200 dark:bg-zinc-800 hidden md:block"></div>
         {experiences.map((experience, index) => (
           <ExperienceItem key={experience.id} experience={experience} isRight={index % 2 !== 0} selectedSkill={selectedSkill} />
         ))}
