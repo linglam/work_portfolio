@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import QuoteIcon from './icons/QuoteIcon';
 
@@ -77,9 +78,27 @@ const Achievement: React.FC = () => {
 
     return (
         <section className="py-20 md:py-32">
-            <h2 className="text-4xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Achievements</h2>
-            <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-20">Testimonials and awards from my professional journey.</p>
-            
+            {/* Honors and Awards Section - Absolute Top */}
+            <div className="mb-20 md:mb-24">
+                <h2 className="text-4xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Honors and Awards</h2>
+                <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">Recognition and professional milestones</p>
+                
+                <div className="max-w-3xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/50 p-8 rounded-lg shadow-lg">
+                    <ul className="space-y-4">
+                        {awardsList.map((award, index) => (
+                            <li key={index} className="flex items-start text-lg">
+                                <svg className="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4l-3 3-3-3m5 12v4m-2-2h4"></path>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21a9 9 0 110-18 9 9 0 010 18z"></path>
+                                </svg>
+                                <span className="text-zinc-700 dark:text-zinc-300">{award}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            {/* Testimonials Section */}
             <div className="mb-20 md:mb-24">
                 <h3 className="text-3xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Testimonials</h3>
                 <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">What others are saying</p>
@@ -118,7 +137,8 @@ const Achievement: React.FC = () => {
                 </div>
             </div>
             
-            <div className="mb-20 md:mb-24">
+            {/* Speaking & Workshops Section */}
+            <div>
                 <h3 className="text-3xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Speaking & Workshops</h3>
                 <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">Engaging with the community</p>
                 <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -148,25 +168,6 @@ const Achievement: React.FC = () => {
                             </div>
                         ))}
                     </div>
-                </div>
-            </div>
-
-            <div>
-                <h3 className="text-3xl font-bold text-center mb-4 text-zinc-900 dark:text-zinc-100">Honors and Awards</h3>
-                <p className="text-sky-500 dark:text-sky-400 text-center font-medium mb-12">Recognition and achievements</p>
-                
-                <div className="max-w-3xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/50 p-8 rounded-lg shadow-lg">
-                    <ul className="space-y-4">
-                        {awardsList.map((award, index) => (
-                            <li key={index} className="flex items-start text-lg">
-                                <svg className="w-6 h-6 mr-3 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4l-3 3-3-3m5 12v4m-2-2h4"></path>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 21a9 9 0 110-18 9 9 0 010 18z"></path>
-                                </svg>
-                                <span className="text-zinc-700 dark:text-zinc-300">{award}</span>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </div>
         </section>
